@@ -1,6 +1,10 @@
 # Alexa Smart Home Skill for Lennox iComfort
 
-This Skill does not yet properly authenticate! I am hardcoding my login information to make this work. This Skill is still very much a work-in-progress.
+Demo of functionality: https://goo.gl/photos/apb1FE4CzEB3zSSa6
+
+This Skill does not yet properly authenticate, therefore I am hardcoding my login information to make this work. This Skill is still very much a work-in-progress.
+
+I am using the Smart Home Skill API with this repo. For more details on setting up the Alexa portion, see here: https://developer.amazon.com/alexa/smart-home
 
 I only have my own iComfort model to work with and develop against, so other systems may need tweaking (especially those with multiple appliances or zones, since I only have one to control my entire home's temperature). Currently, this Smart Home Skill checks to see if you are moving from a higher temperature to a lower one (or vice versa) before deciding appropriate Cool-To and Heat-To temperatures to set.
 

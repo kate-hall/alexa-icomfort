@@ -16,11 +16,11 @@ Smart Home Alexa Skills are very limited, temperature-wise, in what you can requ
 These temperature targets are achieved by narrowing the Cool-To and Heat-To settings to a miminum of three degrees apart from each other. This three-degree window setting depends on whether you are heating or cooling to the desired temperature.
 
 ## Thanks
-Thanks to [Daniel McQuiston](https://github.com/danielmcq) for his [Node iComfort](https://github.com/danielmcq/node-icomfort) repo, which I use to access the Lennox iComfort system.
-Thanks to [krvarma](https://github.com/krvarma/) for their [Alexa Smart Home Skill for Particle Devices](https://github.com/krvarma/particle-alexa-smart-home-skill) repo which I used as the foundation of the Smart Home portion of the skill.
+- Thanks to [Daniel McQuiston](https://github.com/danielmcq) for his [Node iComfort](https://github.com/danielmcq/node-icomfort) repository, which I use to access the Lennox iComfort system.
+- Thanks to [Krishnaraj Varma](https://github.com/krvarma/) for his [Alexa Smart Home Skill for Particle Devices](https://github.com/krvarma/particle-alexa-smart-home-skill) repository, which I used as the foundation of the Smart Home portion of the skill.
 
 ## To Use
-Login credentials to https://m.myicomfort.com/ currently hardcoded, and can be found in changeTemp.js.
+Login credentials to https://m.myicomfort.com/ currently hardcoded, and can be found in [iComfort.js](https://github.com/kate-hall/alexa-icomfort/blob/master/src/iComfort.js#L1).
 
 ## Notes
 Temperature changes will fail if the Cool-To and Heat-To temperatures aren't at least 3 degrees apart.

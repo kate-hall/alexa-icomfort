@@ -1,4 +1,4 @@
-# alexa-icomfort
+# Alexa Smart Home Skill for Lennox iComfort
 An Alexa Skill for the Amazon Echo, client for the Lennox iComfort services implemented in node.js
 
 This Skill does not yet properly authenticate! I am hardcoding my login information to make this work. This Skill is still very much a work-in-progress.

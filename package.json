@@ -1,22 +1,18 @@
 {
-  "name": "node-icomfort",
+  "name": "alexa-icomfort",
   "version": "0.1.0",
-  "description": "A node client for interacting with the Lennox iComfort website",
+  "description": "An Alexa Smart Home Skill for interacting with the Lennox iComfort WiFi",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node tests"
   },
-  "author": "Daniel McQuiston <daniel.pro@dehugo.net>",
+  "author": "Kate Hall <kathryn.hall@gmail.com> and Daniel McQuiston <daniel.pro@dehugo.net>",
   "license": "MIT",
-  "devDependencies": {
-    "eslint": "^3.12.2"
-  },
   "dependencies": {
-    "request": "^2.79.0",
     "request-promise-native": "^1.0.3"
   },
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/danielmcq/node-icomfort.git"
+    "url" : "https://github.com/kate-hall/alexa-icomfort.git"
   }
 }

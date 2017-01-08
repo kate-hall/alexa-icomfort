@@ -9,7 +9,7 @@
   "author": "Kate Hall <kathryn.hall@gmail.com> and Daniel McQuiston <daniel.pro@dehugo.net>",
   "license": "MIT",
   "dependencies": {
-    "request": "^2.79.0"
+    "request": "^2.79.0",
     "request-promise-native": "^1.0.3"
   },
   "repository": {

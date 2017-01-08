@@ -1,9 +1,8 @@
 # Alexa Smart Home Skill for Lennox iComfort
-An Alexa Skill for the Amazon Echo, client for the Lennox iComfort services implemented in node.js
 
 This Skill does not yet properly authenticate! I am hardcoding my login information to make this work. This Skill is still very much a work-in-progress.
 
-I only have my own iComfort model to work with and develop against, so other systems may need tweaking (especially those with multiple appliances or zones, since I only have one to control my entire home's temperature). Currently, this Smart Home Skill checks to see if you are moving from a higher temperature to a lower one (or vice versa) before deciding an appropriate Cool-To and Heat-To temperatures to set.
+I only have my own iComfort model to work with and develop against, so other systems may need tweaking (especially those with multiple appliances or zones, since I only have one to control my entire home's temperature). Currently, this Smart Home Skill checks to see if you are moving from a higher temperature to a lower one (or vice versa) before deciding appropriate Cool-To and Heat-To temperatures to set.
 
 Smart Home Alexa Skills are very limited, temperature-wise, in what you can request. Three intents are supported:
 

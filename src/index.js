@@ -14,7 +14,7 @@ exports.handler = function(event, context) {
             handleControl(event, context);
             break;
         default:
-            console.log("Err: No supported namespace: " + event.header.namespace);
+            console.log("Error, unsupported namespace: " + event.header.namespace);
             context.fail("Something went wrong");
             break;
     }
@@ -96,14 +96,16 @@ function handleControl(event, context) {
         iComfort.getThermostatInfoList(getThermostatInfoListParams, auth)
         .then( function(tempResponse) {
             // Response data to overwrite with new values and put to Lennox
-            var originalTemp = tempResponse.tStatInfo[0].Indoor_Temp;
-                toSet = tempResponse.tStatInfo[0];
+            // Lennox temperature returned in Farenheit, convert to Celsius for Alexa
+            var originalTemp = fToC(tempResponse.tStatInfo[0].Indoor_Temp),
+                toSet = tempResponse.tStatInfo[0],
+                alexaTargetTemp;
 
             // check to see what type of request was made before changing temperature
             switch (event.header.name) {
                 case "SetTargetTemperatureRequest":
                     confirmation = "SetTargetTemperatureConfirmation";
-                    requestedTempChange = Math.round(cToF(event.payload.targetTemperature.value));
+                    requestedTempChange = event.payload.targetTemperature.value;
                     // Check to see if heating or cooling and pass back
                     if (requestedTempChange > originalTemp) {
                         temperatureMode = "HEAT";
@@ -114,43 +116,45 @@ function handleControl(event, context) {
                 case "IncrementTargetTemperatureRequest":
                     var increment = event.payload.deltaTemperature.value;
 
-                    requestedTempChange = toSet.Indoor_Temp + increment;
+                    requestedTempChange = fToC(toSet.Indoor_Temp) + increment;
                     confirmation = "IncrementTargetTemperatureConfirmation";
                     temperatureMode = "HEAT";
                     break;
                 case "DecrementTargetTemperatureRequest":
                     var decrement = event.payload.deltaTemperature.value;
 
-                    requestedTempChange = toSet.Indoor_Temp - decrement;
+                    requestedTempChange = fToC(toSet.Indoor_Temp) - decrement;
                     confirmation = "DecrementTargetTemperatureConfirmation";
                     temperatureMode = "COOL";
                     break;
             }
 
             // set both the Indoor Temp and the Heat Set Point to the new value
-            toSet.Indoor_Temp = requestedTempChange;
+            toSet.Indoor_Temp = cToF(requestedTempChange);
+            // Celcius temperature for Alexa response
+            alexaTargetTemp = requestedTempChange;
 
             // My iComfort requires a minimum 3 degree range between Cool-To and Heat-To settings
             // The following will adjust this 3 degree window depending on the temperatureMode requested
             if (temperatureMode === "COOL") {
-                toSet.Cool_Set_Point = requestedTempChange;
-                toSet.Heat_Set_Point = requestedTempChange - 3;
+                toSet.Cool_Set_Point = cToF(requestedTempChange);
+                toSet.Heat_Set_Point = cToF(requestedTempChange) - 3;
             } else if (temperatureMode === "HEAT") {
-                toSet.Heat_Set_Point = requestedTempChange;
-                toSet.Cool_Set_Point = requestedTempChange + 3;
+                toSet.Heat_Set_Point = cToF(requestedTempChange);
+                toSet.Cool_Set_Point = cToF(requestedTempChange) + 3;
             }
 
             // send the change request to Lennox, send a response to Alexa on promise fulfillment
             iComfort.setThermostatInfo(getThermostatInfoListParams, toSet, auth)
             .then( function(newSettings) {
-                alexaConfirmation(toSet, confirmation, temperatureMode, originalTemp);
+                alexaConfirmation(alexaTargetTemp, confirmation, temperatureMode, originalTemp);
             })
             .catch(console.error);
 
         })
         .catch(console.error);
 
-        var alexaConfirmation = function(newData, confirmation, tempMode, originalTemp) {
+        var alexaConfirmation = function(targetTemp, confirmation, tempMode, originalTemp) {
             var result = {
                 header: {
                     namespace: "Alexa.ConnectedHome.Control",
@@ -160,7 +164,7 @@ function handleControl(event, context) {
                 },
                 payload: {
                     targetTemperature: {
-                        value: fToC(newData.Indoor_Temp)
+                        value: targetTemp
                     }
                 },
                 temperatureMode: {
@@ -168,7 +172,7 @@ function handleControl(event, context) {
                 },
                 previousState: {
                     targetTemperature: {
-                        value: fToC(originalTemp)
+                        value: originalTemp
                     },
                     mode: {
                         value: tempMode

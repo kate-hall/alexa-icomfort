@@ -130,18 +130,18 @@ function handleControl(event, context) {
             }
 
             // set both the Indoor Temp and the Heat Set Point to the new value
-            toSet.Indoor_Temp = cToF(requestedTempChange);
+            toSet.Indoor_Temp = Math.round(cToF(requestedTempChange));
             // Celcius temperature for Alexa response
             alexaTargetTemp = requestedTempChange;
 
             // My iComfort requires a minimum 3 degree range between Cool-To and Heat-To settings
             // The following will adjust this 3 degree window depending on the temperatureMode requested
             if (temperatureMode === "COOL") {
-                toSet.Cool_Set_Point = cToF(requestedTempChange);
-                toSet.Heat_Set_Point = cToF(requestedTempChange) - 3;
+                toSet.Cool_Set_Point = Math.round(cToF(requestedTempChange));
+                toSet.Heat_Set_Point = Math.round(cToF(requestedTempChange) - 3);
             } else if (temperatureMode === "HEAT") {
-                toSet.Heat_Set_Point = cToF(requestedTempChange);
-                toSet.Cool_Set_Point = cToF(requestedTempChange) + 3;
+                toSet.Heat_Set_Point = Math.round(cToF(requestedTempChange));
+                toSet.Cool_Set_Point = Math.round(cToF(requestedTempChange) + 3);
             }
 
             // send the change request to Lennox, send a response to Alexa on promise fulfillment

@@ -35,3 +35,7 @@ My thermostat's maximum temperature is 90 Farenheit, minimum temperature is 40 F
 ## Thanks
 - Thanks to [Daniel McQuiston](https://github.com/danielmcq) for his [Node iComfort](https://github.com/danielmcq/node-icomfort) repository, which I use to access the Lennox iComfort system.
 - Thanks to [Krishnaraj Varma](https://github.com/krvarma/) for his [Alexa Smart Home Skill for Particle Devices](https://github.com/krvarma/particle-alexa-smart-home-skill) repository, which I used as the foundation of the Smart Home portion of the skill.
+
+## Set-Up Instructions
+
+Want to get this up and running on your own Alexa? Visit the [Wiki](https://github.com/kate-hall/alexa-icomfort/wiki) for instructions!

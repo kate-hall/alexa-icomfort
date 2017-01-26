@@ -83,71 +83,58 @@ function handleControl(event, context) {
         var accessToken = event.payload.accessToken;
         var applianceId = event.payload.appliance.applianceId;
         var message_id = event.header.messageId;
-        var requestedTempChange = "";
-        var confirmation,
-            temperatureMode = "AUTO";
+        var confirmation;
 
         var getThermostatInfoListParams = {
             GatewaySN: applianceId,
             TempUnit: 0
         };
 
-        // Query Lennox for current parameters, perform changes on promise fulfillment
-        iComfort.getThermostatInfoList(getThermostatInfoListParams, auth)
-        .then( function(tempResponse) {
+        // Query Lennox for current parameters and potential temp spread, perform changes on promise fulfillments
+        Promise.all([
+            iComfort.getThermostatInfoList(getThermostatInfoListParams, auth),
+            iComfort.getGatewayInfo(getThermostatInfoListParams, auth)
+        ])
+        .then( function(responses) {
             // Response data to overwrite with new values and put to Lennox
             // Lennox temperature returned in Farenheit, convert to Celsius for Alexa
-            var originalTemp = fToC(tempResponse.tStatInfo[0].Indoor_Temp),
-                toSet = tempResponse.tStatInfo[0],
-                alexaTargetTemp;
+            var currentParams = {
+                    systemStatus: responses[0].tStatInfo[0].System_Status,
+                    allowedRange: responses[1].Heat_Cool_Dead_Band,
+                    currentTemp: fToC(responses[0].tStatInfo[0].Indoor_Temp),
+                    currentHeatTo: fToC(responses[0].tStatInfo[0].Heat_Set_Point),
+                    currentCoolTo: fToC(responses[0].tStatInfo[0].Cool_Set_Point),
+                    toSet: responses[0].tStatInfo[0]
+                },
+                newParams = {};
 
             // check to see what type of request was made before changing temperature
             switch (event.header.name) {
                 case "SetTargetTemperatureRequest":
+                    currentParams.requestedTemp = event.payload.targetTemperature.value;
+                    newParams = determineNewParameters(currentParams);
                     confirmation = "SetTargetTemperatureConfirmation";
-                    requestedTempChange = event.payload.targetTemperature.value;
-                    // Check to see if heating or cooling and pass back
-                    if (requestedTempChange > originalTemp) {
-                        temperatureMode = "HEAT";
-                    } else if (requestedTempChange < originalTemp) {
-                        temperatureMode = "COOL";
-                    }
                     break;
                 case "IncrementTargetTemperatureRequest":
                     var increment = event.payload.deltaTemperature.value;
 
-                    requestedTempChange = fToC(toSet.Indoor_Temp) + increment;
+                    currentParams.requestedTemp = fToC(toSet.Indoor_Temp) + increment;
+                    newParams = determineNewParameters(currentParams);
                     confirmation = "IncrementTargetTemperatureConfirmation";
-                    temperatureMode = "HEAT";
                     break;
                 case "DecrementTargetTemperatureRequest":
                     var decrement = event.payload.deltaTemperature.value;
 
-                    requestedTempChange = fToC(toSet.Indoor_Temp) - decrement;
+                    currentParams.requestedTemp = fToC(toSet.Indoor_Temp) - decrement;
+                    newParams = determineNewParameters(currentParams);
                     confirmation = "DecrementTargetTemperatureConfirmation";
-                    temperatureMode = "COOL";
                     break;
             }
 
-            // set both the Indoor Temp and the Heat Set Point to the new value
-            toSet.Indoor_Temp = Math.round(cToF(requestedTempChange));
-            // Celcius temperature for Alexa response
-            alexaTargetTemp = requestedTempChange;
-
-            // My iComfort requires a minimum 3 degree range between Cool-To and Heat-To settings
-            // The following will adjust this 3 degree window depending on the temperatureMode requested
-            if (temperatureMode === "COOL") {
-                toSet.Cool_Set_Point = Math.round(cToF(requestedTempChange));
-                toSet.Heat_Set_Point = Math.round(cToF(requestedTempChange) - 3);
-            } else if (temperatureMode === "HEAT") {
-                toSet.Heat_Set_Point = Math.round(cToF(requestedTempChange));
-                toSet.Cool_Set_Point = Math.round(cToF(requestedTempChange) + 3);
-            }
-
             // send the change request to Lennox, send a response to Alexa on promise fulfillment
-            iComfort.setThermostatInfo(getThermostatInfoListParams, toSet, auth)
+            iComfort.setThermostatInfo(getThermostatInfoListParams, newParams.toSet, auth)
             .then( function(newSettings) {
-                alexaConfirmation(alexaTargetTemp, confirmation, temperatureMode, originalTemp);
+                alexaConfirmation(newParams.alexaTargetTemp, confirmation, newParams.temperatureMode, currentParams.currentTemp);
             })
             .catch(console.error);
 
@@ -183,6 +170,46 @@ function handleControl(event, context) {
         };
 
     }
+}
+
+function determineNewParameters(currentParams) {
+    var newParams = {
+            temperatureMode: "AUTO",
+            alexaTargetTemp: currentParams.requestedTemp, // in Celsius
+            toSet: currentParams.toSet
+        },
+        dropTemp = (currentParams.currentTemp - currentParams.requestedTemp) > 0; // if this evaluates to false, we stay at the same temp OR increase temp
+
+    newParams.toSet.Indoor_Temp = Math.round(cToF(currentParams.requestedTemp));
+
+    // System_Status magic numbers: 0 == idle, 1 == heating, 2 == cooling, 3 == waiting
+
+    // temp is at bottom of current range, i.e. it's colder outside than inside, OR system is heating
+    if ((currentParams.currentTemp - currentParams.currentHeatTo) < (currentParams.currentCoolTo - currentParams.currentTemp) || currentParams.systemStatus === 1) {
+        // raise or lower the bottom accordingly
+        newParams.toSet.Heat_Set_Point = Math.round(cToF(currentParams.requestedTemp));
+        // check to see if existing top is at least the allowed range above the new bottom, if not, raise it at least that much
+        if (!dropTemp && (newParams.toSet.Heat_Set_Point + currentParams.allowedRange) > newParams.toSet.Cool_Set_Point) {
+            newParams.toSet.Cool_Set_Point = newParams.toSet.Heat_Set_Point + currentParams.allowedRange;
+        }
+    }
+    // temp is at top of current range, i.e. it's hotter outside than inside, OR system is cooling
+    else if ((currentParams.currentTemp - currentParams.currentHeatTo) > (currentParams.currentCoolTo - currentParams.currentTemp) || currentParams.systemStatus === 2) {
+        // raise or lower the top accordingly
+        newParams.toSet.Cool_Set_Point = Math.round(cToF(currentParams.requestedTemp));
+        // check to see if existing bottom is at least the allowed range above the new top, if not, raise it at least that much
+        if (dropTemp && (newParams.toSet.Cool_Set_Point - currentParams.allowedRange) < newParams.toSet.Heat_Set_Point) {
+            newParams.toSet.Heat_Set_Point = newParams.toSet.Cool_Set_Point - currentParams.allowedRange;
+        }
+    }
+
+    if (currentParams.requestedTemp > currentParams.currentTemp) {
+        newParams.temperatureMode = "HEAT";
+    } else if (currentParams.requestedTemp < currentParams.currentTemp) {
+        newParams.temperatureMode = "COOL";
+    }
+
+    return newParams;
 }
 
 // function to convert Celcius (Alexa default) to Farenheit

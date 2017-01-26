@@ -118,14 +118,14 @@ function handleControl(event, context) {
                 case "IncrementTargetTemperatureRequest":
                     var increment = event.payload.deltaTemperature.value;
 
-                    currentParams.requestedTemp = fToC(toSet.Indoor_Temp) + increment;
+                    currentParams.requestedTemp = fToC(currentParams.toSet.Indoor_Temp) + increment;
                     newParams = determineNewParameters(currentParams);
                     confirmation = "IncrementTargetTemperatureConfirmation";
                     break;
                 case "DecrementTargetTemperatureRequest":
                     var decrement = event.payload.deltaTemperature.value;
 
-                    currentParams.requestedTemp = fToC(toSet.Indoor_Temp) - decrement;
+                    currentParams.requestedTemp = fToC(currentParams.toSet.Indoor_Temp) - decrement;
                     newParams = determineNewParameters(currentParams);
                     confirmation = "DecrementTargetTemperatureConfirmation";
                     break;

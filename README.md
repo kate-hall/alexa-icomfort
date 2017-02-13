@@ -27,6 +27,6 @@ Want to get this up and running on your own Alexa? **Visit the [Wiki](https://gi
 I only have my own iComfort model to work with and develop against, so other systems may need tweaking (especially those with multiple appliances or zones, since I only have one to control my entire home's temperature). If you encounter any issues or have a suggestion, please open [an issue on this repository](https://github.com/kate-hall/alexa-icomfort/issues).
 
 ## Thanks
-- Thanks to [Daniel McQuiston](https://github.com/danielmcq) for his [Node iComfort](https://github.com/danielmcq/node-icomfort) repository, which I use to access the Lennox iComfort system.
+- Thanks to [Daniel McQuiston](https://github.com/danielmcq) for his [iComfort](https://github.com/deHugo/icomfort-js) repository, which I use to access the Lennox iComfort system.
 - Thanks to [Krishnaraj Varma](https://github.com/krvarma/) for his [Alexa Smart Home Skill for Particle Devices](https://github.com/krvarma/particle-alexa-smart-home-skill) repository, which I used as the foundation of the Smart Home portion of the skill.
 - Thanks to the Reddit community for the suggestions and for helping me test this skill functionality!

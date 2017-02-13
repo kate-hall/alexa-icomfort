@@ -9,11 +9,12 @@
   "author": "Kate Hall <kathryn.hall@gmail.com> and Daniel McQuiston <daniel.pro@dehugo.net>",
   "license": "MIT",
   "dependencies": {
+    "icomfort": "^1.0.2",
     "request": "^2.79.0",
     "request-promise-native": "^1.0.3"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/kate-hall/alexa-icomfort.git"
+    "type": "git",
+    "url": "https://github.com/kate-hall/alexa-icomfort.git"
   }
 }

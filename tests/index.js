@@ -1,6 +1,6 @@
 global.auth = {username: "", password: ""}; // YOUR USERNAME AND PASSWORD FOR MYICOMFORT.COM GO HERE
 
-var iComfort = require("icomfort")(auth);
+var iComfort = new (require("icomfort"))(auth);
 var iComfortSerial = ""; // YOUR APPLIANCE SERIAL HERE! Run Test 1 alone and assign resulting Gateway_SN value
 
 var changeTemperatureTestVars = {

@@ -1,6 +1,6 @@
 global.auth = {username: "", password: ""}; // YOUR USERNAME AND PASSWORD FOR MYICOMFORT.COM GO HERE
 
-var iComfort = require("icomfort")(auth);
+var iComfort = new (require("icomfort"))(auth);
 
 /**
  * Main entry point.

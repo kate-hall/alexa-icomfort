@@ -47,6 +47,6 @@ iComfort.getGatewayInfo(getInfoParams)
     .catch(console.error);
 
 /* Test 4 = Careful! This test will change your actual temperature, uncomment to run */
-// iComfort.setThermostatInfo(getInfoParams, changeTemperatureTestVars)
+// iComfort.setThermostatInfo(changeTemperatureTestVars)
 //     .then(console.log)
 //     .catch(console.error);

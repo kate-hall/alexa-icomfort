@@ -133,7 +133,7 @@ function handleControl(event, context) {
             }
 
             // send the change request to Lennox, send a response to Alexa on promise fulfillment
-            iComfort.setThermostatInfo(getThermostatInfoListParams, newParams.toSet)
+            iComfort.setThermostatInfo(newParams.toSet)
             .then( function(newSettings) {
                 alexaConfirmation(newParams.alexaTargetTemp, confirmation, newParams.temperatureMode, currentParams.currentTemp);
             })

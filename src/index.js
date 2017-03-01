@@ -1,5 +1,6 @@
-var https = require("https"),
-    iComfort = require("iComfort");
+global.auth = {username: "", password: ""}; // YOUR USERNAME AND PASSWORD FOR MYICOMFORT.COM GO HERE
+
+var iComfort = new (require("icomfort"))(auth);
 
 /**
  * Main entry point.
@@ -38,7 +39,7 @@ function handleDiscovery(accessToken, context) {
         getSystemsInfoParams = {UserId:auth.username};
 
 
-    iComfort.getSystemsInfo(getSystemsInfoParams, auth)
+    iComfort.getSystemsInfo(getSystemsInfoParams)
         .then( function(systemInfo) {
             var systemAppliances = systemInfo.Systems;
             for (var i = 0; i < systemAppliances.length; i++) {
@@ -92,8 +93,8 @@ function handleControl(event, context) {
 
         // Query Lennox for current parameters and potential temp spread, perform changes on promise fulfillments
         Promise.all([
-            iComfort.getThermostatInfoList(getThermostatInfoListParams, auth),
-            iComfort.getGatewayInfo(getThermostatInfoListParams, auth)
+            iComfort.getThermostatInfoList(getThermostatInfoListParams),
+            iComfort.getGatewayInfo(getThermostatInfoListParams)
         ])
         .then( function(responses) {
             // Response data to overwrite with new values and put to Lennox
@@ -146,7 +147,7 @@ function handleControl(event, context) {
 
             if (changeTemp) {
                 // send the change request to Lennox, send a response to Alexa on promise fulfillment
-                iComfort.setThermostatInfo(getThermostatInfoListParams, newParams.toSet, auth)
+                iComfort.setThermostatInfo(newParams.toSet)
                 .then( function(newSettings) {
                     alexaChangeConfirmation(newParams.alexaTargetTemp, confirmation, newParams.temperatureMode, currentParams.currentTemp);
                 })

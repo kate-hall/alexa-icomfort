@@ -1,4 +1,6 @@
-var iComfort = require("../src/iComfort");
+global.auth = {username: "", password: ""}; // YOUR USERNAME AND PASSWORD FOR MYICOMFORT.COM GO HERE
+
+var iComfort = new (require("icomfort"))(auth);
 var iComfortSerial = ""; // YOUR APPLIANCE SERIAL HERE! Run Test 1 alone and assign resulting Gateway_SN value
 
 var changeTemperatureTestVars = {
@@ -30,21 +32,21 @@ var getSystemsInfoParams = {UserId: auth.username};
 var getInfoParams = {GatewaySN: iComfortSerial, TempUnit: 0};
 
 /* Test 1 = Retrieves appliance ID for later lookups and system name for Alexa device naming */
-iComfort.getSystemsInfo(getSystemsInfoParams, auth)
+iComfort.getSystemsInfo(getSystemsInfoParams)
     .then(console.log)
     .catch(console.error);
 
 /* Test 2 = Contains current temperature parameters to overwrite when changing temperature */
-iComfort.getThermostatInfoList(getInfoParams, auth)
+iComfort.getThermostatInfoList(getInfoParams)
     .then(console.log)
     .catch(console.error);
 
 /* Test 3 = Returns data on min and max temperatures of your unit, not used in Alexa Skill */
-iComfort.getGatewayInfo(getInfoParams, auth)
+iComfort.getGatewayInfo(getInfoParams)
     .then(console.log)
     .catch(console.error);
 
 /* Test 4 = Careful! This test will change your actual temperature, uncomment to run */
-// iComfort.setThermostatInfo(getInfoParams, changeTemperatureTestVars, auth)
+// iComfort.setThermostatInfo(changeTemperatureTestVars)
 //     .then(console.log)
 //     .catch(console.error);

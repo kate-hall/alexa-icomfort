@@ -52,9 +52,11 @@ function handleDiscovery(accessToken, context) {
                     friendlyDescription: "Lennox iComfort Thermostat",
                     isReachable: true,
                     actions:[
-                        "SetTargetTemperature",
-                        "IncrementTargetTemperature",
-                        "DecrementTargetTemperature"
+                        "getTemperatureReading",
+                        "getTargetTemperature",
+                        "setTargetTemperature",
+                        "incrementTargetTemperature",
+                        "decrementTargetTemperature"
                     ],
                     additionalApplianceDetails: {}
                 };

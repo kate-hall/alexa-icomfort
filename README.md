@@ -15,7 +15,7 @@ Smart Home Alexa Skills are very limited, temperature-wise, in what you can requ
 "Alexa, increase my [device name] temperature by [2] degrees"
 "Alexa, decrease my [device name] temperature by [2] degrees"
 "Alexa, turn [device name] up"
-"Alexa, turn [devince name] down"
+"Alexa, turn [device name] down"
 ```
 
 ## Alexa Companion App

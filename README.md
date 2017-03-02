@@ -9,6 +9,8 @@ Lennox iComfort does not support the type of authentication necessary for Smart 
 Smart Home Alexa Skills are very limited, temperature-wise, in what you can request. These intents are supported:
 
 ```
+"Alexa, what is the temperature of my [device name]?"
+"Alexa, what is [device name] set to?"
 "Alexa, set [device name] to [76] degrees"
 "Alexa, increase my [device name] temperature by [2] degrees"
 "Alexa, decrease my [device name] temperature by [2] degrees"

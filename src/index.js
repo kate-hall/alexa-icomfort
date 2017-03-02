@@ -240,11 +240,11 @@ function handleQuery(event, context) {
 
     var alexaTargetRangeInfo = function(currentTemp, heatTo, coolTo, program, timeStamp, confirmation) {
         var programToTempMode = {
-            0: {tempMode: "CUSTOM", friendlyName: "Summer"},
-            1: {tempMode: "CUSTOM", friendlyName: "Winter"},
-            2: {tempMode: "CUSTOM", friendlyName: "Spring Fall"},
-            3: {tempMode: "ECO", friendlyName: "Save Energy"},
-            4: {tempMode: "CUSTOM", friendlyName: "Custom"}
+            0: {tempMode: "CUSTOM", friendlyName: "Summer Program"},
+            1: {tempMode: "CUSTOM", friendlyName: "Winter Program"},
+            2: {tempMode: "CUSTOM", friendlyName: "Spring Fall Program"},
+            3: {tempMode: "ECO", friendlyName: "Save Energy Program"},
+            4: {tempMode: "CUSTOM", friendlyName: "Custom Program"}
         };
         var result = {
             header: {

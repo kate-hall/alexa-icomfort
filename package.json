@@ -4,7 +4,7 @@
   "description": "An Alexa Smart Home Skill for interacting with the Lennox iComfort WiFi",
   "main": "index.js",
   "scripts": {
-    "test": "node tests"
+    "test": "jest"
   },
   "author": "Kate Hall <kathryn.hall@gmail.com> and Daniel McQuiston <daniel.pro@dehugo.net>",
   "license": "MIT",
@@ -16,5 +16,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/kate-hall/alexa-icomfort.git"
+  },
+  "devDependencies": {
+    "jest": "~22.1.4"
   }
 }

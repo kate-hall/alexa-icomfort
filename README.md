@@ -4,7 +4,7 @@ Demo of functionality: https://goo.gl/photos/apb1FE4CzEB3zSSa6
 
 ---
 
-Lennox iComfort does not support the type of authentication necessary for Smart Home Skill linking (as far as I know), so I am currently hardcoding login information (see here: [iComfort.js](https://github.com/kate-hall/alexa-icomfort/blob/master/src/iComfort.js#L1).)
+Lennox iComfort does not support the type of authentication necessary for Smart Home Skill linking (as far as I know), so I am currently hardcoding login information (see here: [iComfort.js](src/iComfort.js#L1).)
 
 Smart Home Alexa Skills are very limited, temperature-wise, in what you can request. These intents are supported:
 

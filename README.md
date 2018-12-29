@@ -18,15 +18,13 @@ Smart Home Alexa Skills are very limited, temperature-wise, in what you can requ
 "Alexa, turn [device name] down"
 ```
 
-## Alexa Companion App
-
-<img width="375" alt="alexa-companion-app" src="https://cloud.githubusercontent.com/assets/8494775/22136065/f50d990c-de86-11e6-8d21-2cc657c065f7.png">
-
 ## Set-Up Instructions
 
 Want to get this up and running on your own Alexa? **Visit the [Wiki](https://github.com/kate-hall/alexa-icomfort/wiki) for instructions!**
 
 I only have my own iComfort model to work with and develop against, so other systems may need tweaking (especially those with multiple appliances or zones, since I only have one to control my entire home's temperature). If you encounter any issues or have a suggestion, please open [an issue on this repository](https://github.com/kate-hall/alexa-icomfort/issues).
+
+Having issues with Alexa not finding your thermostat, even though you can see it in the app? Try asking "Alexa, switch acccounts."
 
 ## Thanks
 - Thanks to [Daniel McQuiston](https://github.com/danielmcq) for his [iComfort](https://github.com/deHugo/icomfort-js) repository, which I use to access the Lennox iComfort system.

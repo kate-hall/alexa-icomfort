@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" schemaLocation="https://services.myicomfort.com/DBAcessService.svc?xsd=xsd1"/>
+	<xs:complexType name="DealerInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Dealer_Addr1" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Addr2" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_City" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Country" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Name" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Nbr" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Phone" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_StateProv" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Website" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_ZIP" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_eMail" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Receive_alerts" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="Receive_reminders" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="DealerInfo" nillable="true" type="DealerInfo"/>
+	<xs:complexType name="BuildingDealerInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="DealerAlerts_DlrWants" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="DealerAlerts_OwnerAllow" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="DealerReminder_DlrWants" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="DealerReminder_OwnerAllow" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="DealerTStatView" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="Dealer_Addr1" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Addr2" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_City" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Country" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Name" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Nbr" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Phone" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_StateProv" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Website" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_ZIP" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_eMail" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Gateway_SN" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BuildingDealerInfo" nillable="true" type="BuildingDealerInfo"/>
+	<xs:complexType name="BuildingInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Addr1" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Addr2" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Age_of_Building" type="xs:int"/>
+			<xs:element minOccurs="0" name="BuildingAlert" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="BuildingID" type="xs:long"/>
+			<xs:element minOccurs="0" name="BuildingReminder" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="BuildingSize" type="xs:int"/>
+			<xs:element minOccurs="0" name="BuildingStyle" type="xs:int"/>
+			<xs:element minOccurs="0" name="Building_Name" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="City" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="DealerAlerts_DlrWants" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="DealerAlerts_OwnerAllow" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="DealerID" type="xs:long"/>
+			<xs:element minOccurs="0" name="DealerReminder_DlrWants" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="DealerReminder_OwnerAllow" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="DealerTStatView" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="DefaultBuilding" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="Latitude" type="xs:double"/>
+			<xs:element minOccurs="0" name="Longitude" type="xs:double"/>
+			<xs:element minOccurs="0" name="NotificationEmail" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Number_of_Bedrooms" type="xs:int"/>
+			<xs:element minOccurs="0" name="Number_of_Floors" type="xs:int"/>
+			<xs:element minOccurs="0" name="Number_of_Occupants" type="xs:int"/>
+			<xs:element minOccurs="0" name="St_Prov" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="UtilityCompany" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="ZIP_PC" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BuildingInfo" nillable="true" type="BuildingInfo"/>
+	<xs:complexType name="TStatInfoIn">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Cool_Set_Point" type="xs:decimal"/>
+			<xs:element minOccurs="0" name="Fan_Mode" type="xs:int"/>
+			<xs:element minOccurs="0" name="GatewaySN" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Heat_Set_Point" type="xs:decimal"/>
+			<xs:element minOccurs="0" name="Operation_Mode" type="xs:short"/>
+			<xs:element minOccurs="0" name="Pref_Temp_Units" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Zone_Number" type="xs:short"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="TStatInfoIn" nillable="true" type="TStatInfoIn"/>
+	<xs:complexType name="ProgramInfoIn">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Cool_Set_Point" type="xs:decimal"/>
+			<xs:element minOccurs="0" name="Fan_Mode" type="xs:int"/>
+			<xs:element minOccurs="0" name="GatewaySN" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Heat_Set_Point" type="xs:decimal"/>
+			<xs:element minOccurs="0" name="Operation_Mode" type="xs:short"/>
+			<xs:element minOccurs="0" name="Pref_Temp_Units" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Program_Schedule_Mode" type="ser:char"/>
+			<xs:element minOccurs="0" name="Program_Schedule_Selection" type="xs:short"/>
+			<xs:element minOccurs="0" name="Zone_Number" type="xs:short"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ProgramInfoIn" nillable="true" type="ProgramInfoIn"/>
+	<xs:complexType name="TStatInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="tStatInfo" nillable="true" type="ArrayOfTStatInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="TStatInfoList" nillable="true" type="TStatInfoList"/>
+	<xs:complexType name="ArrayOfTStatInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="TStatInfo" nillable="true" type="TStatInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfTStatInfo" nillable="true" type="ArrayOfTStatInfo"/>
+	<xs:complexType name="TStatInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Away_Mode" type="xs:int"/>
+			<xs:element minOccurs="0" name="Central_Zoned_Away" type="xs:int"/>
+			<xs:element minOccurs="0" name="ConnectionStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Cool_Set_Point" type="xs:decimal"/>
+			<xs:element minOccurs="0" name="DateTime_Mark" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="Fan_Mode" type="xs:int"/>
+			<xs:element minOccurs="0" name="GMT_To_Local" type="xs:int"/>
+			<xs:element minOccurs="0" name="GatewaySN" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Golden_Table_Updated" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="Heat_Set_Point" type="xs:decimal"/>
+			<xs:element minOccurs="0" name="Indoor_Humidity" type="xs:int"/>
+			<xs:element minOccurs="0" name="Indoor_Temp" type="xs:decimal"/>
+			<xs:element minOccurs="0" name="Operation_Mode" type="xs:short"/>
+			<xs:element minOccurs="0" name="Pref_Temp_Units" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Program_Schedule_Mode" type="ser:char"/>
+			<xs:element minOccurs="0" name="Program_Schedule_Selection" type="xs:short"/>
+			<xs:element minOccurs="0" name="System_Status" type="xs:int"/>
+			<xs:element minOccurs="0" name="Zone_Enabled" type="xs:int"/>
+			<xs:element minOccurs="0" name="Zone_Name" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Zone_Number" type="xs:short"/>
+			<xs:element minOccurs="0" name="Zones_Installed" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="TStatInfo" nillable="true" type="TStatInfo"/>
+	<xs:complexType name="OwnerProfileInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="MobilePhone" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="NewGatewayPending" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="PwdFlag" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="RegistrationComplete" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="TCInComplete" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="eMail" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="OwnerProfileInfo" nillable="true" type="OwnerProfileInfo"/>
+	<xs:complexType name="CustomerInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Customers" nillable="true" type="ArrayOfCustomerInfo"/>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CustomerInfoList" nillable="true" type="CustomerInfoList"/>
+	<xs:complexType name="ArrayOfCustomerInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="CustomerInfo" nillable="true" type="CustomerInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfCustomerInfo" nillable="true" type="ArrayOfCustomerInfo"/>
+	<xs:complexType name="CustomerInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Addr1" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Addr2" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="BuildingAlert" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="BuildingID" type="xs:long"/>
+			<xs:element minOccurs="0" name="BuildingReminder" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="City" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="DealerAlerts_DlrWants" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="DealerAlerts_OwnerAllow" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="DealerReminder_DlrWants" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="DealerReminder_OwnerAllow" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="DealerTStatView" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Latitude" type="xs:double"/>
+			<xs:element minOccurs="0" name="Longitude" type="xs:double"/>
+			<xs:element minOccurs="0" name="MobilePhone" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="NotificationEmail" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="St_Prov" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="ZIP_PC" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="eMail" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CustomerInfo" nillable="true" type="CustomerInfo"/>
+	<xs:complexType name="SystemInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Systems" nillable="true" type="ArrayOfSystemInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SystemInfoList" nillable="true" type="SystemInfoList"/>
+	<xs:complexType name="ArrayOfSystemInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="SystemInfo" nillable="true" type="SystemInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfSystemInfo" nillable="true" type="ArrayOfSystemInfo"/>
+	<xs:complexType name="SystemInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="BuildingID" type="xs:long"/>
+			<xs:element minOccurs="0" name="Firmware_Ver" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Gateway_SN" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="RegistrationCompleteFlag" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="SystemID" type="xs:long"/>
+			<xs:element minOccurs="0" name="System_Name" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SystemInfo" nillable="true" type="SystemInfo"/>
+	<xs:complexType name="EquipmentInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="equipmentInfo" nillable="true" type="ArrayOfEquipmentInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="EquipmentInfoList" nillable="true" type="EquipmentInfoList"/>
+	<xs:complexType name="ArrayOfEquipmentInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="EquipmentInfo" nillable="true" type="EquipmentInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfEquipmentInfo" nillable="true" type="ArrayOfEquipmentInfo"/>
+	<xs:complexType name="EquipmentInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Control_Model_Nbr" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Control_Serial_Number" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Device_Descriptor" type="xs:long"/>
+			<xs:element minOccurs="0" name="Friendly_Name" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="SystemID" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="EquipmentInfo" nillable="true" type="EquipmentInfo"/>
+	<xs:complexType name="AlertInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Alerts" nillable="true" type="ArrayOfAlertInfo"/>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="AlertInfoList" nillable="true" type="AlertInfoList"/>
+	<xs:complexType name="ArrayOfAlertInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AlertInfo" nillable="true" type="AlertInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfAlertInfo" nillable="true" type="ArrayOfAlertInfo"/>
+	<xs:complexType name="AlertInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Alarm_Description" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Alarm_Nbr" type="xs:double"/>
+			<xs:element minOccurs="0" name="Alarm_Type" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Alarm_Value" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="DateTime_Reset" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="DateTime_Set" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="Status" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="AlertInfo" nillable="true" type="AlertInfo"/>
+	<xs:complexType name="StateProvInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="StateProvinces" nillable="true" type="ArrayOfStateProvInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="StateProvInfoList" nillable="true" type="StateProvInfoList"/>
+	<xs:complexType name="ArrayOfStateProvInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="StateProvInfo" nillable="true" type="StateProvInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfStateProvInfo" nillable="true" type="ArrayOfStateProvInfo"/>
+	<xs:complexType name="StateProvInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Country_abbrv" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Region" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Region_code" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="StateProvInfo" nillable="true" type="StateProvInfo"/>
+	<xs:complexType name="BldDemoInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="bldDemoInfo" nillable="true" type="ArrayOfBldDemoInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BldDemoInfoList" nillable="true" type="BldDemoInfoList"/>
+	<xs:complexType name="ArrayOfBldDemoInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="BldDemoInfo" nillable="true" type="BldDemoInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfBldDemoInfo" nillable="true" type="ArrayOfBldDemoInfo"/>
+	<xs:complexType name="BldDemoInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="sort_order" type="xs:int"/>
+			<xs:element minOccurs="0" name="value" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BldDemoInfo" nillable="true" type="BldDemoInfo"/>
+	<xs:complexType name="MessageInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="messageInfo" nillable="true" type="ArrayOfMessageInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="MessageInfoList" nillable="true" type="MessageInfoList"/>
+	<xs:complexType name="ArrayOfMessageInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="MessageInfo" nillable="true" type="MessageInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfMessageInfo" nillable="true" type="ArrayOfMessageInfo"/>
+	<xs:complexType name="MessageInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="msg_code" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="msg_desc" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="MessageInfo" nillable="true" type="MessageInfo"/>
+	<xs:complexType name="CountryInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="countryInfo" nillable="true" type="ArrayOfCountryInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CountryInfoList" nillable="true" type="CountryInfoList"/>
+	<xs:complexType name="ArrayOfCountryInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="CountryInfo" nillable="true" type="CountryInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfCountryInfo" nillable="true" type="ArrayOfCountryInfo"/>
+	<xs:complexType name="CountryInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="country_code" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="country_name" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CountryInfo" nillable="true" type="CountryInfo"/>
+	<xs:complexType name="AppParamInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="appParamInfo" nillable="true" type="ArrayOfAppParamInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="AppParamInfoList" nillable="true" type="AppParamInfoList"/>
+	<xs:complexType name="ArrayOfAppParamInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="AppParamInfo" nillable="true" type="AppParamInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfAppParamInfo" nillable="true" type="ArrayOfAppParamInfo"/>
+	<xs:complexType name="AppParamInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="parameter_name" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="parameter_value" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="AppParamInfo" nillable="true" type="AppParamInfo"/>
+	<xs:complexType name="EmailContentInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="email_body" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="email_subject" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="sort_order" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="EmailContentInfo" nillable="true" type="EmailContentInfo"/>
+	<xs:complexType name="EmailContentInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="emailInfo" nillable="true" type="ArrayOfEmailContentInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="EmailContentInfoList" nillable="true" type="EmailContentInfoList"/>
+	<xs:complexType name="ArrayOfEmailContentInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="EmailContentInfo" nillable="true" type="EmailContentInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfEmailContentInfo" nillable="true" type="ArrayOfEmailContentInfo"/>
+	<xs:complexType name="URLInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="URL" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="URLInfo" nillable="true" type="URLInfo"/>
+	<xs:complexType name="BuildingInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Buildings" nillable="true" type="ArrayOfBuildingInfo"/>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BuildingInfoList" nillable="true" type="BuildingInfoList"/>
+	<xs:complexType name="ArrayOfBuildingInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="BuildingInfo" nillable="true" type="BuildingInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfBuildingInfo" nillable="true" type="ArrayOfBuildingInfo"/>
+	<xs:complexType name="TStatLookupInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="tStatlookupInfo" nillable="true" type="ArrayOfTStatLookupInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="TStatLookupInfoList" nillable="true" type="TStatLookupInfoList"/>
+	<xs:complexType name="ArrayOfTStatLookupInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="TStatLookupInfo" nillable="true" type="TStatLookupInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfTStatLookupInfo" nillable="true" type="ArrayOfTStatLookupInfo"/>
+	<xs:complexType name="TStatLookupInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Lang_Nbr" type="xs:int"/>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="sort_order" type="xs:int"/>
+			<xs:element minOccurs="0" name="value" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="TStatLookupInfo" nillable="true" type="TStatLookupInfo"/>
+	<xs:complexType name="TStatScheduleInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="tStatScheduleInfo" nillable="true" type="ArrayOfTStatScheduleInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="TStatScheduleInfoList" nillable="true" type="TStatScheduleInfoList"/>
+	<xs:complexType name="ArrayOfTStatScheduleInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="TStatScheduleInfo" nillable="true" type="TStatScheduleInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfTStatScheduleInfo" nillable="true" type="ArrayOfTStatScheduleInfo"/>
+	<xs:complexType name="TStatScheduleInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Schedule_Name" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Schedule_Number" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="TStatScheduleInfo" nillable="true" type="TStatScheduleInfo"/>
+	<xs:complexType name="GatewayInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Cool_Set_Point_High_Limit" type="xs:decimal"/>
+			<xs:element minOccurs="0" name="Cool_Set_Point_Low_Limit" type="xs:decimal"/>
+			<xs:element minOccurs="0" name="Daylight_Savings_Time" type="xs:int"/>
+			<xs:element minOccurs="0" name="Heat_Cool_Dead_Band" type="xs:decimal"/>
+			<xs:element minOccurs="0" name="Heat_Set_Point_High_Limit" type="xs:decimal"/>
+			<xs:element minOccurs="0" name="Heat_Set_Point_Low_Limit" type="xs:decimal"/>
+			<xs:element minOccurs="0" name="Pref_Language_Nbr" type="xs:int"/>
+			<xs:element minOccurs="0" name="Pref_Temp_Unit" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="SystemID" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GatewayInfo" nillable="true" type="GatewayInfo"/>
+	<xs:complexType name="ProgramInfoOut">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Cool_Set_Point" type="xs:decimal"/>
+			<xs:element minOccurs="0" name="Fan_Mode" type="xs:int"/>
+			<xs:element minOccurs="0" name="GatewaySN" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Heat_Set_Point" type="xs:decimal"/>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="ScheduleNum" type="xs:short"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ProgramInfoOut" nillable="true" type="ProgramInfoOut"/>
+	<xs:complexType name="WeatherInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Chance_of_rain" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="City" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Current_temp" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Icon_Nbr" type="xs:int"/>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="State" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="forecastInfo" nillable="true" type="ArrayOfWeatherForecastInfo"/>
+			<xs:element minOccurs="0" name="weathericon" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="WeatherInfo" nillable="true" type="WeatherInfo"/>
+	<xs:complexType name="ArrayOfWeatherForecastInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="WeatherForecastInfo" nillable="true" type="WeatherForecastInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfWeatherForecastInfo" nillable="true" type="ArrayOfWeatherForecastInfo"/>
+	<xs:complexType name="WeatherForecastInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Chance_of_rain" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Date" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="High_temp" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Icon_Nbr" type="xs:int"/>
+			<xs:element minOccurs="0" name="Low_temp" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="WeatherForecastInfo" nillable="true" type="WeatherForecastInfo"/>
+	<xs:complexType name="UserDealerInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Dealerinfo" nillable="true" type="ArrayOfUserDealerInfo"/>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="UserDealerInfoList" nillable="true" type="UserDealerInfoList"/>
+	<xs:complexType name="ArrayOfUserDealerInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="UserDealerInfo" nillable="true" type="UserDealerInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfUserDealerInfo" nillable="true" type="ArrayOfUserDealerInfo"/>
+	<xs:complexType name="UserDealerInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="BuildingID" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="DealerID" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Addr1" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Addr2" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_City" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Country" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Name" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Nbr" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Phone" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_StateProv" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_Website" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_ZIP" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Dealer_eMail" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="UserDealerInfo" nillable="true" type="UserDealerInfo"/>
+	<xs:complexType name="FirmwareDataInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="FirmwareData" nillable="true" type="ArrayOfFirmwareDataInfo"/>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="FirmwareDataInfoList" nillable="true" type="FirmwareDataInfoList"/>
+	<xs:complexType name="ArrayOfFirmwareDataInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="FirmwareDataInfo" nillable="true" type="FirmwareDataInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfFirmwareDataInfo" nillable="true" type="ArrayOfFirmwareDataInfo"/>
+	<xs:complexType name="FirmwareDataInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ActiveInactive_flag" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="Control_Model_Number" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="DateTime_Mark" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="FileID" type="xs:long"/>
+			<xs:element minOccurs="0" name="File_Name" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="FirmwareKey" type="xs:int"/>
+			<xs:element minOccurs="0" name="Firmware_Build_From" type="xs:short"/>
+			<xs:element minOccurs="0" name="Firmware_Build_To" type="xs:short"/>
+			<xs:element minOccurs="0" name="Firmware_Major_From" type="xs:long"/>
+			<xs:element minOccurs="0" name="Firmware_Major_To" type="xs:long"/>
+			<xs:element minOccurs="0" name="Firmware_Minor_From" type="xs:long"/>
+			<xs:element minOccurs="0" name="Firmware_Minor_To" type="xs:long"/>
+			<xs:element minOccurs="0" name="Serial_number_From" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Serial_number_To" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="FirmwareDataInfo" nillable="true" type="FirmwareDataInfo"/>
+	<xs:complexType name="FirmwareFileInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="FirmwareFile" nillable="true" type="ArrayOfFirmwareFileInfo"/>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="FirmwareFileInfoList" nillable="true" type="FirmwareFileInfoList"/>
+	<xs:complexType name="ArrayOfFirmwareFileInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="FirmwareFileInfo" nillable="true" type="FirmwareFileInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfFirmwareFileInfo" nillable="true" type="ArrayOfFirmwareFileInfo"/>
+	<xs:complexType name="FirmwareFileInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="FileID" type="xs:long"/>
+			<xs:element minOccurs="0" name="File_Name" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="File_Size" type="xs:long"/>
+			<xs:element minOccurs="0" name="Firmware_Build_Number" type="xs:int"/>
+			<xs:element minOccurs="0" name="Firmware_Major_Version" type="xs:int"/>
+			<xs:element minOccurs="0" name="Firmware_Minor_Version" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="FirmwareFileInfo" nillable="true" type="FirmwareFileInfo"/>
+	<xs:complexType name="GatewayBlockCInfoList">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="GatewayBlockC" nillable="true" type="ArrayOfGatewayBlockCInfo"/>
+			<xs:element minOccurs="0" name="ReturnStatus" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GatewayBlockCInfoList" nillable="true" type="GatewayBlockCInfoList"/>
+	<xs:complexType name="ArrayOfGatewayBlockCInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="GatewayBlockCInfo" nillable="true" type="GatewayBlockCInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfGatewayBlockCInfo" nillable="true" type="ArrayOfGatewayBlockCInfo"/>
+	<xs:complexType name="GatewayBlockCInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Enable_RSBus_logging" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="GatewaySN" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Idle_Polling_Rate" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="0" name="Report_Moderate_Alarms" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GatewayBlockCInfo" nillable="true" type="GatewayBlockCInfo"/>
+</xs:schema>

@@ -1,9 +1,10 @@
 config
 *.env
+.gitignore
 
 # Logs
 logs
 *.log
 
 # Dependency directories
-node_modules
+/node_modules

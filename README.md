@@ -24,7 +24,7 @@ Want to get this up and running on your own Alexa? **Visit the [Wiki](https://gi
 
 I only have my own iComfort model to work with and develop against, so other systems may need tweaking (especially those with multiple appliances or zones, since I only have one to control my entire home's temperature). If you encounter any issues or have a suggestion, please open [an issue on this repository](https://github.com/kate-hall/alexa-icomfort/issues).
 
-Having issues with Alexa not finding your thermostat, even though you can see it in the app? Try asking "Alexa, switch acccounts."
+Having issues with Alexa not finding your thermostat, even though you can see it in the app? Try asking "Alexa, switch accounts."
 
 ## Thanks
 - Thanks to [Daniel McQuiston](https://github.com/danielmcq) for his [iComfort](https://github.com/deHugo/icomfort-js) repository, which I use to access the Lennox iComfort system.
